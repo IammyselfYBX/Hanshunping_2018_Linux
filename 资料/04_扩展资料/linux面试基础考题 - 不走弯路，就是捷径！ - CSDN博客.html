@@ -1,0 +1,1480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0053)http://blog.csdn.net/hzrandd/article/details/50787483 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+            <link rel="canonical" href="http://blog.csdn.net/hzrandd/article/details/50787483"> 
+
+   
+
+  
+ <meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" media="handheld" href="http://blog.csdn.net/hzrandd/article/details/50787483#">
+
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848"> 
+       
+    <title>linux面试基础考题 - 不走弯路，就是捷径！
+        - CSDN博客</title>
+    
+    <meta name="description" content="本片文章可能对没什么基础的初学者有些用，大部分有linux基础的童鞋们就请自动略过此节吧-_-||而且，学习或者复习linux这个东西，强烈建议不要光看书，一定动手敲一敲，玩一玩，会上手快得多。       linux是一个开源、免费的操作系统，其稳定性、安全性、处理多并发已经得到业界的认可，目前很多中型，大型甚至是巨型项目都在使用linux。linux内核：redhat 、红">
+
+    <meta name="keywords" content="linux,面试,基础">
+
+   
+    <script src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/hm.js.下载"></script><script src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/blog_static_head.min.js.下载" type="text/javascript"></script>
+
+    
+        <!--new top-->
+       
+       
+        <!--new top-->
+    
+      <!-- ad begin -->
+         
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/style.css">
+
+    
+
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://blog.csdn.net/q454684431/rss/list">
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/blue.css">
+ 
+
+
+
+    <link href="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/csdn_public_blog_detail.min.css" type="text/css" rel="stylesheet">
+     
+         <link rel="stylesheet" href="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/csdn_blog_detail.min.css">
+
+  
+
+
+    <!-- 请置于所有广告位代码之前 --> 
+            <script src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/ds.js.下载"></script>
+
+<script src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/share.js.下载"></script><link href="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/bdsstyle.css" rel="stylesheet" type="text/css"><script src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/wxLogin.js.下载"></script><link rel="stylesheet" type="text/css" href="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/style(1).css"><link type="text/css" rel="stylesheet" href="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/style(2).css"><script src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/logger.js.下载"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><link rel="stylesheet" href="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/share_style0_16.css"></head>
+
+
+<body><div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;"><iframe id="BAIDU_DUP_fp_iframe" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/o.html" style="width: 0px; height: 0px; visibility: hidden; display: none;"></iframe></div><div id="MathJax_Message" style="display: none;"></div><iframe frameborder="0" style="display: none;" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/saved_resource.html"></iframe><div class="csdn-toolbar csdn-toolbar-skin-black ">        <div class="container row center-block ">          <div class="col-md-3 pull-left logo clearfix"><a href="http://www.csdn.net/?ref=toolbar" title="CSDN首页" target="_blank" class="icon"></a><a title="频道首页" href="http://blog.csdn.net/?ref=toolbar_logo" class="img blog-icon"></a></div>          <div class="pull-right login-wrap unlogin">            <ul class="btns">              <li class="loginlink"><a href="https://passport.csdn.net/account/login?ref=toolbar" target="_top">登录&nbsp;</a>|<a target="_top" href="http://passport.csdn.net/account/mobileregister?ref=toolbar&amp;action=mobileRegister">&nbsp;注册</a></li>              <li class="search">                <div class="icon on-search-icon">                  <div class="wrap">                    <div class="curr-icon-wrap">                      <div class="curr-icon"></div>                    </div>                    <form action="http://so.csdn.net/search" id="toolbar_search" method="get" target="_blank">                      <input type="hidden" value="toolbar" name="ref" accesskey="2">                      <div class="border">                        <input placeholder="搜索" type="text" value="" name="q" accesskey="2"><span class="icon-enter-sm"></span>                      </div>                    </form>                  </div>                </div>              </li>              <li class="favor">                <div class="icon on-favor-icon">                  <div class="wrap">                    <div class="curr-icon-wrap">                      <div class="curr-icon"></div>                    </div>                    <div style="display:none;" class="favor-success"><span class="msg">收藏成功</span>                      <div class="btns"><span class="btn btn-primary ok">确定</span></div>                    </div>                    <div style="display:none;" class="favor-failed"><span class="icon-danger-lg"></span><span class="msg">收藏失败，请重新收藏</span>                      <div class="btns"><span class="btn btn-primary ok">确定</span></div>                    </div>                    <form role="form" class="form-horizontal favor-form">                      <div class="form-group">                        <div class="clearfix">                          <label for="input-title" class="col-sm-2 control-label"><span class="red_txt">*</span>标题</label>                          <div class="col-sm-10">                            <input id="inputTitle" type="text" placeholder="" class="title form-control">                          </div>                        </div>                        <div class="alert alert-danger"><strong></strong>标题不能为空</div>                      </div>                      <div class="form-group" style="display:none;">                        <label for="input-url" class="col-sm-2 control-label">网址</label>                        <div class="col-sm-10">                          <input id="input-url" type="text" placeholder="" class="url form-control">                        </div>                      </div>                      <div class="form-group">                        <label for="input-tag" class="col-sm-2 tag control-label">标签</label>                        <div class="col-sm-10">                          <input id="input-tag" type="text" class="form-control tag">                        </div>                      </div>                      <div class="form-group">                        <label for="input-description" class="description col-sm-2 control-label">位置</label>                        <div class="col-sm-10">                          <div class="my_lib_box">                            个人主页&nbsp;-&nbsp;<a href="http://my.csdn.net/" target="_blank">我的知识</a>                          </div>                          <div class="checkbox">                            <div class="pull-left">                              <label>                                <input type="checkbox" name="share" class="save_lib_map" checked="checked">同时保存至：                              </label>                            </div>                            <div class="pull-left">                              <div class="dropdown">                                <button id="toolbar_sele_map" type="button">                                  选择知识图谱                                  <i class="fa fa-chevron-down"></i>                                </button>                                <div class="top_arr"></div>                                <div class="outside">                                  <ul class="dropdown-menu" id="toolbar_Design_knowledge"><li>选择知识图谱</li></ul>                                </div>                              </div>                            </div>                            <div class="pull-left new_txt">                              <a href="http://lib.csdn.net/my/create/structure" target="_blank">新建？</a>                            </div>                          </div>                        </div>                      </div>                      <div class="form-group">                        <div class="col-sm-offset-2 col-sm-10 ft">                          <div class="col-sm-4 pull-left" style="display:none">                            <div class="checkbox">                              <label>                                <input type="checkbox" name="share" checked="checked" class="share">公开                              </label>                            </div>                          </div>                          <div class="col-sm-8 pull-right favor-btns">                            <button type="button" class="cancel btn btn-default">取消</button>                            <button type="submit" class="submit btn btn-primary">收藏</button>                          </div>                        </div>                      </div>                    </form>                  </div>                </div>              </li>              <li class="notify">                <div style="display:none" class="number"></div>                <div style="display:none" class="icon-hasnotes-sm"></div>                <div id="header_notice_num"></div>                <div class="icon on-notify-icon">                  <div class="wrap">                    <div class="curr-icon-wrap">                      <div class="curr-icon"></div>                    </div>                    <div id="note1" class="csdn_note">                      <div class="box"></div>                    <iframe src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/saved_resource(1).html" frameborder="0" allowtransparency="true" style="z-index:-1;position:absolute;top:0;left:0;width:100%;height:100%;background:transparent"></iframe></div>                  </div>                </div>              </li>              <li class="ugc">                <div class="icon on-ugc-icon">                  <div class="wrap clearfix">                    <div class="curr-icon-wrap">                      <div class="curr-icon"></div>                    </div>                    <dl>                      <dt><a href="http://geek.csdn.net/news/expert?ref=toolbar" target="_blank" class="p-news clearfix" style="display:none;"><em class="icon"></em><span>分享资讯</span></a></dt>                      <dt style="border: none;"><a href="http://u.download.csdn.net/upload?ref=toolbar" target="_blank" class="p-doc clearfix"><em class="icon"></em><span>传PPT/文档</span></a></dt>                      <dt><a href="http://bbs.csdn.net/topics/new?ref=toolbar" target="_blank" class="p-ask clearfix"><em class="icon"></em><span>提问题</span></a></dt>                      <dt><a href="http://write.blog.csdn.net/postedit?ref=toolbar" target="_blank" class="p-blog clearfix"><em class="icon"></em><span>写博客</span></a></dt>                      <dt><a href="http://u.download.csdn.net/upload?ref=toolbar" target="_blank" class="p-src clearfix"><em class="icon"></em><span>传资源</span></a></dt>                      <dt><a href="https://code.csdn.net/projects/new?ref=toolbar" target="_blank" class="c-obj clearfix"><em class="icon"></em><span>创建项目</span></a></dt>                      <dt><a href="https://code.csdn.net/snippets/new?ref=toolbar" target="_blank" class="c-code clearfix"><em class="icon"></em><span>创建代码片</span></a></dt>                    </dl>                  </div>                </div>              </li>              <li class="profile">                <div class="icon on-profile-icon"><img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/100x100.jpg" class="curr-icon-img">                  <div class="wrap clearfix">                    <div class="curr-icon-wrap">                      <div class="curr-icon"></div>                    </div>                    <div class="bd">                      <dl class="clearfix">                        <dt class="pull-left img"><a target="_blank" href="http://my.csdn.net/?ref=toolbar" class="avatar"><img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/100x100.jpg"></a></dt>                        <dd class="info" style="border: none;"><a target="_blank" href="http://my.csdn.net/?ref=toolbar" class="nickname"></a><a class="set-nick" href="https://passport.csdn.net/account/profile">设置昵称<span class="write-icon"></span></a><span class="dec"><a class="fill-dec" href="http://my.csdn.net/" target="_blank">编辑自我介绍，让更多人了解你<span class="write-icon"></span></a></span></dd>                      </dl>                    </div>                    <div class="ft clearfix"><a target="_blank" href="http://my.csdn.net/my/account/changepwd?ref=toolbar" class="pull-left"><span class="icon-cog"></span>帐号设置</a><a href="https://passport.csdn.net/account/logout?ref=toolbar" target="_top" class="pull-left" style="margin-left:132px; width:18px; height:27px; white-space:nowrap; overflow:hidden;"><span class="icon-signout"></span><span class="out">退出</span></a></div>                  </div>                </div>              </li>              <li class="apps">                <div id="chasnew123" class="hasnew" style="display: none;"></div>                <div id="cappsarea123" class="icon on-apps-icon">                  <div class="wrap clearfix">                    <div class="curr-icon-wrap">                      <div class="curr-icon"></div>                    </div>                  <div class="detail">                    <dl>                      <dt>                        <h5>社区</h5>                      </dt>                      <dd> <a href="http://blog.csdn.net/?ref=toolbar" target="_blank">博客</a></dd>                      <dd> <a href="http://bbs.csdn.net/?ref=toolbar" target="_blank">论坛</a></dd>                      <dd> <a href="http://download.csdn.net/?ref=toolbar" target="_blank">下载</a></dd>                      <dd> <a href="http://lib.csdn.net/?ref=toolbar" target="_blank">知识库</a></dd>                      <dd><a href="http://ask.csdn.net/?ref=toolbar" target="_blank">技术问答</a></dd>                      <dd><a href="http://geek.csdn.net/?ref=toolbar" target="_blank">极客头条</a></dd>                      <dd style="display:none"> <a href="http://hero.csdn.net/?ref=toolbar" target="_blank">英雄会</a></dd>                    </dl>                  </div>                  <div class="detail">                    <dl>                      <dt>                        <h5>服务</h5>                      </dt>                      <dd style="display:none"> <a href="http://job.csdn.net/?ref=toolbar" target="_blank">JOB<img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/new.gif" style="display: none; margin-top: -26px; width: 23px;"></a></dd>                      <dd> <a href="http://edu.csdn.net/?ref=toolbar" target="_blank">学院<img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/new.gif" style="display: none; margin-top: -26px; width: 23px;"></a></dd>                      <dd> <a href="https://code.csdn.net/?ref=toolbar" target="_blank">CODE</a></dd>                      <dd> <a href="http://huiyi.csdn.net/?ref=toolbar" target="_blank">活动</a></dd>                      <dd> <a href="http://www.csto.com/?ref=toolbar" target="_blank">CSTO</a></dd>                      <dd> <a href="http://mall.csdn.net/?ref=toolbar" target="_blank">C币兑换<img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/new.gif" style="display: none; margin-top: -26px; width: 23px;"></a></dd>                    </dl>                  </div>                  <div class="detail last">                    <dl>                      <dt>                        <h5>俱乐部</h5>                      </dt>                      <dd> <a href="http://cto.csdn.net/?ref=toolbar" target="_blank">CTO俱乐部</a></dd>                      <dd> <a href="http://student.csdn.net/?ref=toolbar" target="_blank">高校俱乐部</a></dd>                    </dl>                  </div>                </div>              </div>            </li>            </ul>          </div>        </div>    </div>
+     
+        <div class="tracking-ad" data-view="true" data-mod="ad_popu_72" data-mtp="62" data-order="40" data-con="ad_content_2072">
+                     <script id="popuLayer_js_q" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/popuLayer.js.下载" defer="defer" type="text/javascript"></script>
+                <div id="layerd" style="position: fixed; bottom: 0px; right: 0px; line-height: 0px; z-index: 1000; width: 300px; height: 278px;">
+    	                <div class="J_close layer_close" style="display:;background-color:#efefef;padding:0px;color:#333;font:12px/24px Helvetica,Tahoma,Arial,sans-serif;text-align:right;">关闭</div><!-- 广告占位容器 --><div id="cpro_u2895327"><iframe id="iframeu2895327_0" name="iframeu2895327_0" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/cclm.html" width="300" height="250" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0;vertical-align:bottom;margin:0;width:300px;height:250px" allowtransparency="true"></iframe></div></div>
+                <script>  document.getElementById("popuLayer_js_q").onload = function () { var styObjd = styObj = { width: "300px", "height": parseInt(250) + 28 }; window.CSDN.Layer.PopuLayer("#layerd", { storageName: "layerd", styleObj: styObjd, total: 50, expoire: 1000 * 60 }); }</script><!-- 投放代码 --><script type="text/javascript">                    /*服务器频道首页置顶Banner960*90，创建于2014-7-3*/    (window.cproArray = window.cproArray || []).push({ id: "u2895327" });  </script>  <script src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/c.js.下载" type="text/javascript"></script>
+     
+        </div>
+
+    <!-- 广告位开始 -->
+        
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/html.js.下载" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/hzrandd">不走弯路，就是捷径！</a></h2>
+            <h3>一起学习，一起书写传奇！</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+     
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>           
+                <li id="btnContents"><a href="http://blog.csdn.net/hzrandd?viewmode=contents"><span onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_mulu&#39;])">
+                    <img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/hzrandd?viewmode=list"><span onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_zhaiyao&#39;])">
+                    <img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/hzrandd/rss/list"><span onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_RSS&#39;])">
+                    <img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "q454684431";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/hzrandd";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod="popu_3"> 
+
+
+<a href="http://blog.csdn.net/epubit17/article/details/77770966" target="_blank">
+<font color="red"><strong>异步赠书：Kotlin领衔10本好书</strong></font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://edu.csdn.net/huiyiCourse/series_detail/63" target="_blank">
+<font color="red"><strong>免费直播：AI时代，机器学习如何入门？</strong></font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/turingbooks/article/details/77479427" target="_blank">
+<font color="blue"><strong>程序员8月书讯</strong></font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<a href="https://gitee.com/enterprises?from=csdn-sqbkxq" target="_blank">
+<font color="red"><strong>项目管理+代码托管+文档协作，开发更流畅</strong></font></a>
+
+
+
+</div>                        </div>
+
+                        
+
+
+
+  
+
+
+
+
+
+
+<script type="text/javascript" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/category.js.下载"></script>
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+      var isBole = false; 
+      var fasrc="http://my.csdn.net/my/favorite/miniadd?t=linux%e9%9d%a2%e8%af%95%e5%9f%ba%e7%a1%80%e8%80%83%e9%a2%98&u=http://blog.csdn.net/hzrandd/article/details/50787483"
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Repost"></span>
+
+    <h1>
+        <span class="link_title"><a href="http://blog.csdn.net/hzrandd/article/details/50787483">
+        linux面试基础考题        
+           
+        </a>
+        </span>
+
+         
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_l">
+            <span class="link_categories">
+            标签：
+              <a href="http://www.csdn.net/tag/linux" target="_blank" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_tag&#39;]);">linux</a><a href="http://www.csdn.net/tag/%e9%9d%a2%e8%af%95" target="_blank" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_tag&#39;]);">面试</a><a href="http://www.csdn.net/tag/%e5%9f%ba%e7%a1%80" target="_blank" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_tag&#39;]);">基础</a>
+            </span>
+        </div>
+        <div class="article_r">
+            <span class="link_postdate">2016-03-03 12:02</span>
+            <span class="link_view" title="阅读次数">6225人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="http://blog.csdn.net/hzrandd/article/details/50787483#comments" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_pinglun&#39;])">评论</a>(0)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle(&#39;linux%e9%9d%a2%e8%af%95%e5%9f%ba%e7%a1%80%e8%80%83%e9%a2%98&#39;,&#39;50787483&#39;);return false;" title="收藏" target="_blank">收藏</a></span>
+             <span class="link_report"> <a href="http://blog.csdn.net/hzrandd/article/details/50787483#report" onclick="javascript:report(50787483,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label onclick="GetCategoryArticles(&#39;6116806&#39;,&#39;q454684431&#39;,&#39;top&#39;,&#39;50787483&#39;);">
+                        <span onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_fenlei&#39;]);">笔试面试<em>（46）</em></span>
+                      <img class="arrow-down" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a href="http://blog.csdn.net/q454684431/article/category/6116806" target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_6116806">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+
+  
+
+  
+  
+     
+
+
+<div id="article_content" class="article_content tracking-ad" data-mod="popu_307" data-dsm="post">
+
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun">本片文章可能对没什么基础的初学者有些用，大部分有<a href="http://lib.csdn.net/base/linux" class="replace_word" title="Linux知识库" target="_blank" style="color:#df3434; font-weight:bold;">Linux</a>基础的童鞋们就请自动略过此节吧-_-||</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun">而且，学习或者复习<a href="http://lib.csdn.net/base/linux" class="replace_word" title="Linux知识库" target="_blank" style="color:#df3434; font-weight:bold;">linux</a>这个东西，强烈建议不要光看书，一定动手敲一敲，玩一玩，会上手快得多。</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><br>
+&nbsp; &nbsp; &nbsp; &nbsp;linux是一个开源、免费的<a href="http://lib.csdn.net/base/operatingsystem" class="replace_word" title="操作系统知识库" target="_blank" style="color:#df3434; font-weight:bold;">操作系统</a>，其稳定性、安全性、处理多并发已经得到业界的认可，目前很多中型，大型甚至是巨型项目都在使用linux。linux内核：redhat 、红旗linux、ubuntu、suse、fedora，它们的内核都是一样的（Note：linux其实是一个统称，就比如面条是一个统称，可以有哨子面、阳春面、打卤面等）&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun">&nbsp; &nbsp; &nbsp; linux的特点&nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - 免费的/开源&nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;- 支持多线程/多用户&nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;- 安全性好&nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;- 对内存和文件管理优越&nbsp;<br>
+<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;关机命令</strong>&nbsp;<br>
+&nbsp; &nbsp; &nbsp;&nbsp;shutdown -h now（立即进行关机） &nbsp; &nbsp; &nbsp;shutdown -r now （现在重新启动计算机） &nbsp; &nbsp; &nbsp;reboot （现在重新启动计算机）&nbsp;<br>
+<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;进入桌面&nbsp;</strong><br>
+&nbsp; &nbsp; &nbsp;&nbsp;startx&nbsp;<br>
+<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;用户登录&nbsp;</strong><br>
+&nbsp; &nbsp; &nbsp;&nbsp;登录时尽量少用root账户登录，因为它是系统管理员，最大的权限，难免操作失误。可以利用普通用户登录，登录后再用“su -”命令来切换成系统管理员身份&nbsp;<br>
+<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;用户注销&nbsp;</strong><br>
+&nbsp; &nbsp; &nbsp;&nbsp;在提示符下输入logout即可&nbsp;<br>
+<br>
+<strong>&nbsp; &nbsp; &nbsp; vi</strong>编辑器是linux下最有名的编辑器，也是我们学习linux必须掌握的工具，在linux下也可使用vi进行程序的开发，如<a href="http://lib.csdn.net/base/java" class="replace_word" title="Java 知识库" target="_blank" style="color:#df3434; font-weight:bold;">Java</a>程序，c程序 。输入i，进入到插入模式；输入Esc键，进入命令模式 ；输入冒号:wq 表示退出保存，:q!表示退出不保存<br>
+<br>
+<br>
+<strong>&nbsp; &nbsp; &nbsp; linux的文件系统是采用层级式的树状目录结构</strong>，在此结构中的最上层是<strong>根目录“/”</strong>，然后在此目录下再创建其他的目录，深刻理解linux文件目录是非常重要的&nbsp;<br>
+<br>
+- /&nbsp;<br>
+- root，存放root用户的相关文件&nbsp;<br>
+- home，存放普通用户的相关文件&nbsp;<br>
+- bin，存放常用命令的目录，如vi，su&nbsp;<br>
+- sbin，要具有一定权限才可以使用命令&nbsp;<br>
+- mnt，默认挂载光驱和软驱的目录&nbsp;<br>
+- etc，存放配置的相关文件&nbsp;<br>
+- var，存放经常变化的文件，如网络连接的sock文件&nbsp;<br>
+- boot，存放引导系统启动的相关文件&nbsp;<br>
+- usr，安装一个软件的默认目录，相当于windows下的program files&nbsp;<br>
+<br>
+&nbsp; &nbsp; &nbsp;&nbsp;常用命令介绍&nbsp;<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;pwd</strong>，显示当前在哪个路径下&nbsp;<br>
+<br>
+&nbsp; &nbsp; &nbsp;&nbsp;linux的用户管理&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><strong>&nbsp; &nbsp; &nbsp;&nbsp;useradd</strong>&nbsp;用户名，添加用户&nbsp;<br>
+&nbsp; &nbsp; &nbsp;&nbsp;【案例】useradd xiaoming</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><strong>&nbsp; &nbsp; &nbsp;&nbsp;passwd</strong>&nbsp;用户名，为新用户设密码&nbsp;<br>
+&nbsp; &nbsp; &nbsp;&nbsp;【案例】passwd xiaoming，修改小明的密码&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><strong>&nbsp; &nbsp; &nbsp;&nbsp;userdel</strong>&nbsp;用户名，删除用户&nbsp;<br>
+&nbsp; &nbsp; &nbsp;&nbsp;【案例】userdel xiaoming，删除用户但保存用户主目录&nbsp;<br>
+&nbsp; &nbsp; &nbsp;&nbsp;【案例】userdel ‐ xiaoming，删除用户以及用户主目录&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><strong>&nbsp; &nbsp; &nbsp;&nbsp;logout</strong>，当前用户推出&nbsp;<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;who am i</strong>，当前用户是谁&nbsp;<br>
+<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;cd</strong>，改变目录&nbsp;<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;ls</strong>，列出文件和目录&nbsp;<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;ls ‐a</strong>，显示目录下的所有文件，包括隐藏文件&nbsp;<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;ls ‐l</strong>，显示长列表格式&nbsp;<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;mkdir</strong>，建立目录&nbsp;<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;rmdir</strong>，删除空目录&nbsp;<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;touch</strong>，建立空文件&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><strong>&nbsp; &nbsp; &nbsp;&nbsp;cp</strong>，复制命令&nbsp;<br>
+&nbsp; &nbsp; &nbsp;&nbsp;【案例】cp ‐r dir1 dir2，递归复制命令（复制子目录信息）&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><strong>&nbsp; &nbsp; &nbsp;&nbsp;mv</strong>，移动文件和改文件名&nbsp;<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;rm</strong>，删除文件和目录&nbsp;<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;rm ‐rf *</strong>，删除所有内容，包含目录和文件，r表示递归，f表示强制&nbsp;<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;ln</strong>，建立符号连接，类似于建立某个文件的快捷方式&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><strong>&nbsp; &nbsp; &nbsp;&nbsp;ln ‐s</strong>&nbsp;源目标&nbsp;<br>
+&nbsp; &nbsp; &nbsp;&nbsp;【案例】ln ‐s /etc/inittab inittab，inittab指向实际文件/etc/inittab inittab&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><strong>&nbsp; &nbsp; &nbsp;&nbsp;more</strong>，显示文件内容带分页，ctrl + page up上翻，长空格下翻&nbsp;<br>
+<strong>&nbsp; &nbsp; &nbsp;&nbsp;less</strong>，显示文件内容带分页&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><strong>&nbsp; &nbsp; &nbsp;&nbsp;grep</strong>，在文本中查询内容&nbsp;<br>
+&nbsp; &nbsp; &nbsp;&nbsp;【案例】假设存在某个文件test.java中含有hanyang关键字，此时可以使用grep名命令来查找，grep n “hanyang” test.java，n表示在第n行出现&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><strong>&nbsp; &nbsp; &nbsp;&nbsp;|</strong>，管道命令，在linux和unix系统，把上一个命令的结果交给|后面的命令处理&nbsp;<br>
+&nbsp; &nbsp; &nbsp;&nbsp;【案例】ls ‐l /etc/ | more&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun">&nbsp; &nbsp; &nbsp;&nbsp;- man [command]，帮助，类似于dos中的help&nbsp;<br>
+&nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun">- find，搜索文件及目录。在linux中，因为文件系统是以级别式的结构来组成的，所以要在整个系统中找到特定的文件和目录并不是件容易的事。而“find”命令可以解决上述问题&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun">-&nbsp;<strong>在特定的目录下搜索并显示指定名称的文件和目录</strong>&nbsp;<br>
+【案例】find / -name man：意思是说从根目录开始搜索名称为man的文件或目录&nbsp;<br>
+- 搜索一段时间内被存取/变更的文件或目录&nbsp;<br>
+【案例】find /home -amin -10：十分钟内存取的文件或目录&nbsp;<br>
+【案例】find /home -atime -10：十小时内存取的文件或目录&nbsp;<br>
+【案例】find /home -cmin -10：十分钟内更改过的文件或目录&nbsp;<br>
+【案例】find /home -ctime +10：十小时前更改过的文件或目录&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><br>
+-&nbsp;<strong>搜索指定大小的文件</strong>&nbsp;<br>
+【案例】find /home -size +10k：意思是说查找/home目录下大小为10k的文件&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><br>
+-&nbsp;<strong>重定向命令&nbsp;</strong><br>
+- ls -l &gt; a.txt，列表的内容写入文件a.txt中（覆盖写）&nbsp;<br>
+- ls -al &gt;&gt; aa.txt，列表的内容追加到文件aa.txt的末尾&nbsp;<br>
+- 从文件中输入信息：database_program &lt; database_data&nbsp;<br>
+- en，查看环境变量&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><br>
+-&nbsp;<strong>压缩和解压</strong>&nbsp;<br>
+- 以zip和unzip处理.zip文件&nbsp;<br>
+- zip命令的基本使用方法&nbsp;<br>
+- zip file.zip *：zip后接压缩后的文件名，在它的后面输入要压缩的文<br>
+件即可&nbsp;<br>
+- 压缩后，自动删除原文件&nbsp;<br>
+【案例】zip m file.zip to.txt：把to.txt文件压缩成file.zip文件，to.txt会自动删除的&nbsp;<br>
+- 将子目录一起压缩&nbsp;<br>
+【案例】zip ‐r file.zip *：将当前目录下的子目录一起压缩&nbsp;<br>
+- 忽略子目录的内容&nbsp;<br>
+【案例】zip ‐j file.zip *&nbsp;<br>
+- 将已压缩的或没有必要压缩的文件去掉&nbsp;<br>
+【案例】zip ‐n .mpg: .jpg: .gif：第一种文件中间要用“：”分开&nbsp;<br>
+- 压缩某一日之后的文件&nbsp;<br>
+【案例】zip ‐t 102002 file.zip：将当前目录下在2002年10月20日之后文件压缩&nbsp;<br>
+- 不压缩链接文件的原文件&nbsp;<br>
+【案例】zip ‐y file.zip *&nbsp;<br>
+- 压缩率问题，-1~-9，其中-9的压缩率最高&nbsp;<br>
+【案例】zip -9 file.zip *&nbsp;<br>
+- 将不需要压缩的文件排除在外&nbsp;<br>
+【案例】zip file.zip * -x file2.txt：在压缩时，将当前目录内的file2.txt文件排除在外&nbsp;<br>
+- 以unzip命令进行.zip文件的解压缩&nbsp;<br>
+- 直接解压缩文件&nbsp;<br>
+【案例】unzip file.zip&nbsp;<br>
+- 排除不需要解压缩的文件&nbsp;<br>
+【案例】unzip file.zip ‐x file2：除了file2文件外，其他的文件都解压缩&nbsp;<br>
+- 查看压缩包的内容&nbsp;<br>
+【案例】unzip ‐Z file.zip：查看file.zip压缩包的内容，也可以使用“-l”&nbsp;“-v”来查看压缩包的内容&nbsp;<br>
+- 以gzip和gunzip处理.gz文件&nbsp;</span></p>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun"><br>
+<br>
+&nbsp; &nbsp; &nbsp; 在linux中的每个用户必须属于一个组，不能独立于组外。在linux中每个文件有<strong>所有者、所在组、其它组</strong>的概念 。<br>
+1）所有者：一般为文件的创建者，谁创建了该文件，就天然的成为该文件的所有者。用ls ‐ahl命令可以看到文件的所有者。也可以使用chown 用户名 文件名来修改文件的所有者。<br>
+2）文件所在组：当某个用户创建了一个文件后，这个文件的所在组就是该用户所在的组，用ls ‐ahl命令可以看到文件的所有组，也可以使用chgrp 组名 文件名来修改文件所在的组。<br>
+3）其它组：除开文件的所有者和所在组的用户外，系统的其它用户都是文件的其它组。<br>
+<br>
+<br>
+<strong>文件权限&nbsp;</strong><br>
+&nbsp; &nbsp; &nbsp;&nbsp;ls -l中显示的内容如下：&nbsp;<br>
+&nbsp; &nbsp; &nbsp;&nbsp;-rwxrw-r‐-1 root root 1213 Feb 2 09:39 abc&nbsp;<br>
+<br>
+- 10个字符确定不同用户能对文件干什么&nbsp;<br>
+- 第一个字符代表文件（-）、目录（d），链接（l）&nbsp;<br>
+- 其余字符每3个一组（rwx），读（r）、写（w）、执行（x）&nbsp;<br>
+- 第一组rwx：文件所有者的权限是读、写和执行&nbsp;<br>
+- 第二组rw-：与文件所有者同一组的用户的权限是读、写但不能执行&nbsp;<br>
+- 第三组r--：不与文件所有者同组的其他用户的权限是读不能写和执行&nbsp;<br>
+也可用数字表示为：r=4，w=2，x=1 因此rwx=4+2+1=7&nbsp;<br>
+<br>
+- 1 表示连接的文件数&nbsp;<br>
+- root 表示用户&nbsp;<br>
+- root表示用户所在的组&nbsp;<br>
+- 1213 表示文件大小（字节）&nbsp;<br>
+- Feb 2 09:39 表示最后修改日期&nbsp;<br>
+- abc 表示文件名&nbsp;<br>
+<br>
+<strong>改变权限的命令</strong>&nbsp;<br>
+chmod 改变文件或目录的权限&nbsp;<br>
+chmod 755 abc：赋予abc权限rwxr-xr-x&nbsp;<br>
+chmod u=rwx，g=rx，o=rx abc：同上u=用户权限，g=组权限，o=不同组其他用户权限&nbsp;<br>
+chmod u-x，g+w abc：给abc去除用户执行的权限，增加组写的权限&nbsp;<br>
+chmod a+r abc：给所有用户添加读的权限&nbsp;<br>
+<br>
+<strong>改变所有者（chown）和用户组（chgrp）命令&nbsp;</strong><br>
+chown xiaoming abc：改变abc的所有者为xiaoming&nbsp;<br>
+chgrp root abc：改变abc所属的组为root&nbsp;<br>
+chown root ./abc：改变abc这个目录的所有者是root&nbsp;<br>
+chown ‐R root ./abc：改变abc这个目录及其下面所有的文件和目录的所有者是root&nbsp;<br>
+<br>
+<strong>改变用户所在组&nbsp;</strong><br>
+在添加用户时，可以指定将该用户添加到哪个组中，同样用root的管理权限可以改变某个<br>
+用户所在的组&nbsp;<br>
+- usermod ‐g 组名 用户名&nbsp;<br>
+你可以用&nbsp;- usermod ‐d 目录名 用户名，改变该用户登录的初始目录&nbsp;<br>
+<br>
+<strong>linux分区详解&nbsp;</strong><br>
+硬盘的分区主要分为基本分区（Primary Portion）和扩展分区（Extension Portion）两种。只是针对一个硬盘来讲，基本分区和扩展分区的数目之和不能大于4个，且基本分区可以马上被使用但不能再分区。扩展分区必须再进行分区后才能使用，也就是说它必须还要进行二次分区。那么有扩展分区再分下去的是什么呢？它就是逻辑分区（Logical Portion），而且逻辑分区没有数量上限制&nbsp;<br>
+<br>
+对windows用户来说，有几个分区就有几个驱动器，并且每个分区都会获得一个字母标识符，然后就可以选用这个字母来指定在这个分区上的文件和目录。它们的文件结构都是独立的，非常好理解。但对这些用户初上手Redhat Linux，可就有点恼人了。因为对<strong>Redhat&nbsp;Linux用户来说无论有几个分区，分给哪一个目录使用，它归根结底就只有一个根目录、一个独立且唯一的文件结构</strong>。Redhat Linux中每个分区都是用来组成整个文件系统的一部分。因为它<strong>采用了一种叫“载入”的处理方法</strong>，它的整个文件系统中包含了一整套的文件和目录，并将一个分区和一个目录联系起来。这时要载入的那个分区将使它的存储空间在这个目录下获得。<br>
+<br>
+几个重要命令&nbsp;<br>
+<strong>挂载命令&nbsp;</strong><br>
+mount [-parameters] [设备名称] [挂载点]&nbsp;<br>
+<strong>卸载命令&nbsp;</strong><br>
+umount [挂载点]&nbsp;<br>
+<strong>查看磁盘使用情况&nbsp;</strong><br>
+df [-parameters]&nbsp;<br>
+- df -h&nbsp;<br>
+- df ‐l&nbsp;<br>
+- df [目录全路径]，查看某个目录是在哪个分区&nbsp;<br>
+<br>
+<strong>查看linux系统分区具体情况&nbsp;</strong><br>
+fdisk ‐l&nbsp;<br>
+<br>
+<strong>shell编程&nbsp;</strong><br>
+其实作为命令语言互动式地解释和执行用户输入的命令只是shell功能的一个方面。shell还可以用来进行程序设计。它提供了定义变量和参数的手段以及丰富的程序控制结构。使用shell编程类似于DOS中批处理文件，称为shell script，又叫shell程序或shell命令文件。<br>
+<br>
+shell脚本文件：&nbsp;<br>
+- 是一个文本文件&nbsp;<br>
+- 命令的集合&nbsp;<br>
+- 有执行的权限&nbsp;<br>
+- 执行方式（./文件名）&nbsp;<br>
+<br>
+用export可以临时加入一个系统路径，如export PATH=$PATH:$HOME/bin:/root/test/t1，输出环境PATH，引用原来的值$PATH，$HOME表示工作主目录，:是路径分隔符&nbsp;</span></p>
+<span style="font-size:14px; line-height:26px; font-family:SimSun"><br>
+<strong>shell通配符&nbsp;</strong><br>
+- *代表多个字母或数字&nbsp;<br>
+- ?代表一个字母或数字&nbsp;<br>
+【案例】ls a* ls a? ls f080[1-6].tif&nbsp;<br>
+<br>
+<br>
+<strong>- 转义字符\&nbsp;</strong><br>
+【案例】ls /mnt/win1/My\Documents&nbsp;<br>
+<br>
+<strong>- 单引号：不处理任何变量和命令&nbsp;</strong><br>
+【案例】echo ‘Welcome $NAME, the date is date ’&nbsp;<br>
+<br>
+<strong>- 双引号：处理变量但不处理命令</strong>&nbsp;<br>
+【案例】echo “Welcome $NAME, the date is date “&nbsp;<br>
+<br>
+<strong>- 反引号：把引号中的每个单词作为一个命令，如果是变量则先求值然后作为一个命令处理&nbsp;</strong><br>
+【案例】echo “Welcome $NAME, the date is `date` “&nbsp;<br>
+<br>
+<br>
+<strong>查阅历史记录&nbsp;</strong><br>
+- history，查看使用过的命令的历史记录&nbsp;<br>
+- history 5，此项说明会显示最近使用的5个命令&nbsp;<br>
+- !5，此项说明执行历史编号为5的命令&nbsp;<br>
+</span><span style="font-family:Arial; font-size:14px; line-height:26px"></span>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Arial; font-size:14px; line-height:26px">
+<span style="font-family:SimSun">- !ls，此项说明执行最后一次以“ls”开头的命令</span></p>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad bdshare-button-style0-16" style="float: right;" data-mod="popu_172" data-bd-bind="1504439860921">
+<a href="http://blog.csdn.net/hzrandd/article/details/50787483#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important" target="_blank"></a>
+<a href="http://blog.csdn.net/hzrandd/article/details/50787483#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="background-position:0 -52px !important" target="_blank"></a>
+<a href="http://blog.csdn.net/hzrandd/article/details/50787483#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="background-position:0 -104px !important" target="_blank"></a>
+<a href="http://blog.csdn.net/hzrandd/article/details/50787483#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博" style="background-position:0 -260px !important" target="_blank"></a>
+<a href="http://blog.csdn.net/hzrandd/article/details/50787483#" class="bds_renren" data-cmd="renren" title="分享到人人网" style="background-position:0 -208px !important" target="_blank"></a>
+<a href="http://blog.csdn.net/hzrandd/article/details/50787483#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="background-position:0 -1612px !important" target="_blank"></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   
+
+<!--172.16.140.14-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/bds_s_v2.js.下载"></script>
+
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+
+
+ 
+
+
+        <div id="digg" articleid="50787483">
+            <dl id="btnDigg" class="digg digg_disable" onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>1</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable" onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" target="_blank">&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" target="_blank">&nbsp;</a></div>
+    <script type="text/javascript">
+        function btndigga() {
+            $(".tracking-ad[data-mod='popu_222'] a").click();
+        }
+        function btnburya() {
+            $(".tracking-ad[data-mod='popu_223'] a").click();
+        }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_shangyipian&#39;]);location.href=&#39;http://blog.csdn.net/q454684431/article/details/50787442&#39;;">上一篇</span><a href="http://blog.csdn.net/q454684431/article/details/50787442" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_shangyipian&#39;])">linux操作系统面试题大全</a></li>
+                <li class="next_article"><span onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_xiayipian&#39;]);location.href=&#39;http://blog.csdn.net/q454684431/article/details/50787499&#39;;">下一篇</span><a href="http://blog.csdn.net/q454684431/article/details/50787499" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_xiayipian&#39;])">linux面试之-谈谈你理解的堆和栈</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+            <div class="similar_article">
+                    <h4></h4>
+                    <div class="similar_c" style="margin:20px 0px 0px 0px">
+                        <div class="similar_c_t">
+                          &nbsp;&nbsp;相关文章推荐
+                        </div>
+                   
+                        <div class="similar_wrap tracking-ad" data-mod="popu_36" style="max-height:250px">                       
+                            <ul class="similar_list fl">    
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/Air_D/article/details/52752354" title="java基础部分面试常考题" strategy="BlogCommendFromCsdn_0" target="_blank">java基础部分面试常考题</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://edu.csdn.net/huiyiCourse/detail/501?utm_source=blog7" title="【直播】大中型UGC信息网站SEO分享--乔向阳" strategy="undefined" target="_blank">【直播】大中型UGC信息网站SEO分享--乔向阳</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://download.csdn.net/download/wflois/1285392" title="2009年名企招聘面试考题集锦及答案汇总" strategy="BlogCommendFromCsdn_1" target="_blank">2009年名企招聘面试考题集锦及答案汇总</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://edu.csdn.net/huiyiCourse/series_detail/60?utm_source=blog7" title="【直播】打通Linux脉络 进程、线程和调度--宋宝华" strategy="undefined" target="_blank">【直播】打通Linux脉络 进程、线程和调度--宋宝华</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://download.csdn.net/download/hatzhou/3842838" title="java面试题及技巧4" strategy="BlogCommendFromCsdn_2" target="_blank">java面试题及技巧4</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://edu.csdn.net/huiyiCourse/detail/503?utm_source=blog7" title="【直播】Java最佳学习路线指导--肖海鹏" strategy="undefined" target="_blank">【直播】Java最佳学习路线指导--肖海鹏</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/q454684431/article/details/50787483" title="linux面试基础考题" strategy="BlogCommendFromCsdn_3" target="_blank">linux面试基础考题</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://edu.csdn.net/combo/detail/539?utm_source=blog7" title="【套餐】C++音视频实战技术套餐--夏曹俊" strategy="undefined" target="_blank">【套餐】C++音视频实战技术套餐--夏曹俊</a>
+                                   </li>
+                            </ul>
+                              <ul class="similar_list fr">      
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://download.csdn.net/download/habazhu1110/5052427" title="java面试考题大全" strategy="BlogCommendFromCsdn_4" target="_blank">java面试考题大全</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://edu.csdn.net/combo/detail/544?utm_source=blog7" title="【套餐】0基础拿下HTML5和CSS3--李仁密" strategy="undefined" target="_blank">【套餐】0基础拿下HTML5和CSS3--李仁密</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/u012788815/article/details/17048413" title="11个Linux基础面试问题" strategy="BlogCommendFromCsdn_5" target="_blank">11个Linux基础面试问题</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://edu.csdn.net/combo/detail/532?utm_source=blog7" title="【套餐】机器学习之数学基础系列--AI100" strategy="undefined" target="_blank">【套餐】机器学习之数学基础系列--AI100</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/Xiao_peng117/article/details/76676353" title="嵌入式linux基础面试题" strategy="BlogCommendFromCsdn_6" target="_blank">嵌入式linux基础面试题</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://download.csdn.net/download/nimeideadd/8950261" title="程序员面试常考题，及知识点" strategy="BlogCommendFromCsdn_7" target="_blank">程序员面试常考题，及知识点</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://download.csdn.net/download/faint_aroma/9757144" title="软件测试面试常考题" strategy="BlogCommendFromCsdn_8" target="_blank">软件测试面试常考题</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://download.csdn.net/download/xty88645/1979763" title="常见的java基础考题" strategy="BlogCommendFromCsdn_9" target="_blank">常见的java基础考题</a>
+                                   </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>   
+      
+</div>
+
+     <div>
+           
+
+       
+                           
+            <!-- 广告位：PC端-博客内容页-banner1-960*90 --> 
+            <script> 
+                (function() { 
+                    var s = "_" + Math.random().toString(36).slice(2); 
+                    document.write('<div id="' + s + '"></div>'); 
+                    (window.slotbydup=window.slotbydup || []).push({ 
+                        id: '4228013', 
+                        container: s, 
+                        size: '0,0', 
+                        display: 'inlay-fix' 
+                    }); 
+                })(); 
+            </script><div id="_n9xkkz6293j"></div><script charset="utf-8" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/cclm"></script><script type="text/javascript">
+    /*测试-博客内容页下方Banner1-960*90*/
+    var cpro_id = "u2998112";
+</script>
+<script type="text/javascript" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/c.js.下载"></script><div id="BAIDU_SSP__wrapper_u2998112_0"><iframe id="iframeu2998112_0" name="iframeu2998112_0" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/cclm(1).html" width="960" height="90" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0;vertical-align:bottom;margin:0;width:960px;height:90px" allowtransparency="true"></iframe></div>
+
+    </div>
+
+<div id="suggest">
+
+</div>
+         <script language="javascript" type="text/javascript">     
+             $(function(){
+                 $.get("/q454684431/svc/GetSuggestContent/50787483",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+
+            
+                                    
+            
+                                    
+
+        <!-- 广告位开始 -->
+        <!-- 广告位结束 -->
+
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list"><br>&nbsp;&nbsp;暂无评论<br><br><div class="clear"></div></div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form"><div class="guest_link">您还没有登录,请<a href="javascript:void(0);" onclick="javascript:loginbox();">[登录]</a>或<a href="http://passport.csdn.net/account/register?from=http%3A%2F%2Fblog.csdn.net%2Fhzrandd%2Farticle%2Fdetails%2F50787483">[注册]</a></div></div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '50787483';
+    var commentscount = 0;
+    var islock = false
+</script>
+
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top" style="bottom:60px;">
+
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/blog-icon-reply.png" alt="快速回复">
+        </a>    
+    <a id="d-top-a" class="btn btn-top backtop" style="display: none;" title="返回顶部" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_huidaodingbu&#39;])">         
+         <img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){        
+        
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+    var articletitle='linux面试基础考题';
+
+</script>
+
+
+
+
+
+
+
+
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/q454684431" target="_blank">
+    <img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/1_q454684431.jpg" title="访问我的空间" style="max-width:90%">
+    </a>
+    <br>
+    <span><a href="http://my.csdn.net/q454684431" class="user_name" target="_blank">BAT-Battle</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter" title="[发私信]" onclick="window.open(&#39;http://msg.csdn.net/letters/model?receiver=q454684431&#39;,&#39;_blank&#39;,&#39;height=350,width=700&#39;);_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_sixin&#39;])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>591007次</span></li>
+    <li>积分：<span>6676</span> </li>    
+    <li>等级： <span style="position:relative;display:inline-block;z-index:1">
+            <img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/blog6.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：6676 </div>
+        </span>  </li>
+    <li>排名：<span>第3586名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>73篇</span></li>
+    <li>转载：<span>180篇</span></li>
+    <li>译文：<span>1篇</span></li>
+    <li>评论：<span>30条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search csdn-tracking-statistics" target="_blank" data-mod="popu_306">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字"></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog">
+        <input type="hidden" name="q" id="inputQ">
+        <input type="hidden" name="t" value="blog">
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+   
+    $(function () {
+        $("#btnSubmit").unbind("click");
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {           
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            if ($("#inputSearch").val() == "") {               
+                alert("请录入搜索关键词！");                         
+                return false;
+            }
+            //var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";           
+            var url = "https://www.baidu.com/s?wd=" + encodeURIComponent($("#inputSearch").val()) + "%20site%3Ablog.csdn.net"
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/1545911" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">云计算</a><span>(40)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/1545913" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">linux</a><span>(57)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/1545915" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">网络编程</a><span>(17)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/1545917" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">git</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/1545919" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">python</a><span>(29)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/1545993" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">生活感悟</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/1557477" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">虚拟化技术</a><span>(19)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/1557553" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">镜像</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/1562861" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">数据库</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/1584889" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">消息机制</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/1868367" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">游戏3D</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/2170231" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">boost库之家</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/2529751" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">mac</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/2529753" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">mysql</a><span>(19)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/5640367" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">ElasticSearch</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/2838559" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">Docker</a><span>(13)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/5847557" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">MongoDB</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/5866853" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">learning</a><span>(58)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/5879569" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">日志系统</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/6116806" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">笔试面试</a><span>(47)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/6152082" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">Linux内存管理</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/6156317" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">linux网络</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/6160318" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">Linux进程通信</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/6271696" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">系统调优</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/6408637" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">java</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/q454684431/article/category/6641590" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">linux文件系统</a><span>(2)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list"><li><a href="http://blog.csdn.net/q454684431/article/month/2017/09">2017年09月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2017/08">2017年08月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2017/07">2017年07月</a><span>(7)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2016/12">2016年12月</a><span>(4)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2016/11">2016年11月</a><span>(1)</span></li><span class="hidelist" style="display:none;"><li><a href="http://blog.csdn.net/q454684431/article/month/2016/10">2016年10月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2016/09">2016年09月</a><span>(3)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2016/08">2016年08月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2016/07">2016年07月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2016/06">2016年06月</a><span>(6)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2016/04">2016年04月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2016/03">2016年03月</a><span>(45)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2016/02">2016年02月</a><span>(22)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2016/01">2016年01月</a><span>(10)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2015/12">2015年12月</a><span>(3)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2015/11">2015年11月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2015/10">2015年10月</a><span>(13)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2015/09">2015年09月</a><span>(6)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2015/08">2015年08月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2015/07">2015年07月</a><span>(11)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2015/01">2015年01月</a><span>(16)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2014/09">2014年09月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2014/06">2014年06月</a><span>(4)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2014/05">2014年05月</a><span>(3)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2014/04">2014年04月</a><span>(7)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2014/01">2014年01月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2013/11">2013年11月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2013/09">2013年09月</a><span>(14)</span></li><li><a href="http://blog.csdn.net/q454684431/article/month/2013/08">2013年08月</a><span>(64)</span></li></span><div id="archive_list_button" class="list_closed">展开</div></div>
+</ul>
+</div>
+<div id="hotarticls" class="panel tracking-ad" data-mod="popu_340">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/42782869" title="docker退出关闭容器" target="_blank">docker退出关闭容器</a><span>(27635)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/42774773" title="docker启动容器" target="_blank">docker启动容器</a><span>(14023)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/11538273" title="keystone 安装、数据库配置" target="_blank">keystone 安装、数据库配置</a><span>(11406)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/11815323" title="python eventlet并发原理分析" target="_blank">python eventlet并发原理分析</a><span>(11252)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/49003387" title="关于Mongodb的全面总结" target="_blank">关于Mongodb的全面总结</a><span>(11094)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/22989825" title="linux  如何改变include路径" target="_blank">linux  如何改变include路径</a><span>(10468)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/10239943" title="glance 模块内部结构" target="_blank">glance 模块内部结构</a><span>(10426)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/11395503" title="与其担心未来，不如现在拼尽全力" target="_blank">与其担心未来，不如现在拼尽全力</a><span>(10025)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/9875399" title="致青春" target="_blank">致青春</a><span>(10009)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/42803223" title="docker导入导出容器" target="_blank">docker导入导出容器</a><span>(9381)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel tracking-ad" data-mod="popu_341">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/11815323" title="python eventlet并发原理分析" target="_blank">python eventlet并发原理分析</a><span>(4)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/50829389" title="linux面试之--堆、栈、自由存储区、全局/静态存储区和常量存储区" target="_blank">linux面试之--堆、栈、自由存储区、全局/静态存储区和常量存储区</a><span>(4)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/9875341" title="大学，是什么呢？" target="_blank">大学，是什么呢？</a><span>(3)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/10073967" title="python中关于with及contextlib的用法" target="_blank">python中关于with及contextlib的用法</a><span>(2)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/49003387" title="关于Mongodb的全面总结" target="_blank">关于Mongodb的全面总结</a><span>(2)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/9773017" title="改变自己的133种方法" target="_blank">改变自己的133种方法</a><span>(2)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/10074163" title="python 线程池的研究及实现" target="_blank">python 线程池的研究及实现</a><span>(2)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/50981517" title="DNS解析与域名服务安全防护策略" target="_blank">DNS解析与域名服务安全防护策略</a><span>(2)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/23740459" title="如何把oslo.config使用到自己的项目中" target="_blank">如何把oslo.config使用到自己的项目中</a><span>(2)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/hzrandd/article/details/31742367" title="python轻量级ORM---peewee" target="_blank">python轻量级ORM---peewee</a><span>(1)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/blogdevteam/article/details/77651442" target="_blank">* CSDN日报20170828——《4个方法快速打造你的阅读清单》</a></li>
+<li><a href="http://blog.csdn.net/blogdevteam/article/details/77647813" target="_blank">* CSDN博客模板调查问卷</a></li>
+<li><a href="http://blog.csdn.net/yhaolpz/article/details/77366154" target="_blank">* 动手打造史上最简单的 Recycleview 侧滑菜单</a></li>
+<li><a href="http://blog.csdn.net/sweettool/article/details/77018506" target="_blank">* TCP网络通讯如何解决分包粘包问题</a></li>
+<li><a href="http://blog.csdn.net/dc_726/article/details/77728729" target="_blank">* 程序员的八重境界</a></li>
+<li><a href="http://blog.csdn.net/pangpang123654/article/details/77720036" target="_blank">* 四大线程池详解
+</a></li>
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="http://blog.csdn.net/hzrandd/article/details/50577617#comments">Linux线程实现机制分析</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/u011480825" class="user_name">小饼zzz</a>:
+在线程机制的具体实现上，可以在操作系统内核上实现线程，也可以在核外实现，后者显然要求核内至少实现了进...
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/hzrandd/article/details/42774773#comments">docker启动容器</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/qq_35603762" class="user_name">杨先生1993</a>:
+写的虽然有点乱，但是我试了很好用，赞一个。
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/hzrandd/article/details/49003387#comments">关于Mongodb的全面总结</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/eagle8625" class="user_name">明月撒</a>:
+挺好
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/hzrandd/article/details/50981517#comments">DNS解析与域名服务安全防护策略</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/q454684431" class="user_name">BAT-Battle</a>:
+他们是不同的DNS服务器，负责工作内容不同
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/hzrandd/article/details/50981517#comments">关于Mongodb的全面总结</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/qq_31924435" class="user_name">沧海一屌丝</a>:
+666，写的不错。总结的很好。。。
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/hzrandd/article/details/50981517#comments">DNS解析与域名服务安全防护策略</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/qq_30753945" class="user_name">Mr_琅</a>:
+不太了解权威DNS与 (DNS树状图里的顶级域名服务器下的)权限域名服务器之间的关系，是一样的吗？网...
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/hzrandd/article/details/31742367#comments">python轻量级ORM---peewee</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/jyhhhhhhh" class="user_name">jyh-omp</a>:
+非常感谢提供的例子@！！
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/hzrandd/article/details/9875341#comments">大学，是什么呢？</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/q454684431" class="user_name">BAT-Battle</a>:
+没啥遗憾，唯一就是提前毕业，导致没有参加毕业照。
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/hzrandd/article/details/9875341#comments">大学，是什么呢？</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/q454684431" class="user_name">BAT-Battle</a>:
+这不就是生活吗？
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/hzrandd/article/details/9875341#comments">大学，是什么呢？</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/q454684431" class="user_name">BAT-Battle</a>:
+哈哈，必须滴。
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+
+                   <!-- 广告位开始 -->                    <!-- 广告位结束 -->
+                   <div class="tracking-ad" data-view="true" data-mtp="63" data-order="40" data-con="ad_content_1260" style="width: 200px; height: 500px;">
+                         <div id="nav_show_top_stop" style="width: 200px; height: 500px; z-index: 1000; position: fixed; top: 0px;"><div id="cpro_u2734128"><iframe id="iframeu2734128_0" name="iframeu2734128_0" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/cclm(2).html" width="200" height="200" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0;vertical-align:bottom;margin:0;width:200px;height:200px" allowtransparency="true"></iframe></div>
+                             <div id="cpro_u3031287"><iframe id="iframeu3031287_0" name="iframeu3031287_0" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/cclm(3).html" width="200" height="200" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0;vertical-align:bottom;margin:0;width:200px;height:200px" allowtransparency="true"></iframe></div></div>
+                   </div>
+                <script type="text/javascript">
+                    setTimeout(function () {
+                        var naviga_offsetTop = 0;
+                        function naviga_stay_top() { var scrollTop = jQuery(document).scrollTop(); if (scrollTop > naviga_offsetTop) { jQuery("#nav_show_top_stop").css({ "position": "fixed" }); jQuery("#nav_show_top_stop").css({ "top": "0px" }); } else { jQuery("#nav_show_top_stop").css({ "position": "fixed" }); jQuery("#nav_show_top_stop").css({ "top": naviga_offsetTop - scrollTop + "px" }); } }
+                        function onload_function() { naviga_offsetTop = jQuery("#nav_show_top_stop").position().top; jQuery(window).bind("scroll", naviga_stay_top); jQuery(window).bind("mousewheel", naviga_stay_top); jQuery(document).bind("scroll", naviga_stay_top); jQuery(document).bind("mousewheel", naviga_stay_top); } jQuery(document).ready(onload_function);
+
+                    }, 200);
+                </script>                    
+<script type="text/javascript">(window.cproArray = window.cproArray || []).push({ id: "u2734128" });  </script> 
+                    <script src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/c.js.下载" type="text/javascript"></script> 
+                   <script type="text/javascript">
+                       /*PC端-博客内容页左侧Button2-200*200-2017/7/10*/
+                       (window.cproArray = window.cproArray || []).push({ id: "u3031287" });
+</script>
+<script type="text/javascript" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/c.js.下载"></script>
+
+           </div>   
+
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/login.js.下载"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+
+    </div>
+      <!--new top-->
+    
+
+     
+
+   
+   
+     <!--new top-->
+   
+   
+
+    
+    
+    
+   
+
+   
+
+
+       <script type="text/javascript" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/MathJax.js.下载"></script>
+          <script type="text/javascript">
+              //$(function () {
+              //    setTimeout(function () {
+              //        var searchtitletags = articletitle + ',' + $("#tags").html();
+              //        searchService({
+              //            index: 'blog',
+              //            query: searchtitletags,
+              //            from: 5,
+              //            size: 5,
+              //            appendTo: '#res',
+              //            url: 'recommend',
+              //            his: 2,
+              //            client: "blog_cf_enhance",
+              //            tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+              //        });
+              //    }, 1000);
+              //});
+
+         </script>
+    
+    <script src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/csdn_blog_detail.min.js.下载" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/pub_footer_2014.css"><div class="pub_fo"><div id="pub_footerall" class="pub_footer_new"><dl><dt></dt> <dd class="foot_sub_menu"><a href="http://www.csdn.net/company/about.html" target="_blank">公司简介</a><span>|</span><a href="http://www.csdn.net/company/recruit.html" target="_blank">招贤纳士</a><span>|</span><a href="http://www.csdn.net/company/marketing.html" target="_blank">广告服务</a><span>|</span><a href="http://www.csdn.net/company/contact.html" target="_blank">联系方式</a><span>|</span><a href="http://www.csdn.net/company/statement.html" target="_blank">版权声明</a><span>|</span><a href="http://www.csdn.net/company/layer.html" target="_blank">法律顾问</a><span>|</span><a href="mailto:webmaster@csdn.net">问题报告</a><span>|</span><a target="_blank" href="http://www.csdn.net/friendlink.html">合作伙伴</a><span>|</span><a href="http://bbs.csdn.net/forums/Service" target="_blank">论坛反馈</a></dd><dd class="foot_contact"><a href="javascript:void(0);" target="_blank" class="qq">网站客服</a><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2251809102&amp;site=qq&amp;menu=yes" target="_blank" class="qq">杂志客服</a><a href="http://e.weibo.com/csdnsupport/profile" target="_blank" class="weibo">微博客服</a><a href="mailto:webmaster@csdn.net" class="email" title="联系邮箱">webmaster@csdn.net</a><span class="phone" title="服务热线">400-660-0108</span><span class="interval">|</span><span>北京创新乐知信息技术有限公司 版权所有</span><span class="interval">|</span><span>江苏知之为计算机有限公司</span><span class="interval">|</span><span>江苏乐知网络技术有限公司</span></dd><dd class="foot_copyright"><span>京&nbsp;ICP&nbsp;证&nbsp;09002463&nbsp;号</span><span class="interval">|</span><span>Copyright © 1999-2017, CSDN.NET, All Rights Reserved&nbsp;</span><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202001032100010" target="_blank"><img src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/gongshang_logos.gif" alt="GongshangLogo" title=""></a></dd></dl></div></div><div id="note1" class="csdn_note" style="display:none; position:absolute; z-index:9999; width:440px">  <span class="notice_top_arrow"><span class="inner"></span></span>  <div class="box"></div></div><div class="csdn_notice_tip" style="display:none; position:absolute; z-index:9990; width:170px">  <iframe src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/saved_resource(2).html" frameborder="0" scrolling="no" style="z-index:-1;position:absolute;top:0;left:0;width:100%;height:100%;background:transparent"></iframe>  <div class="tip_text">您有<strong>0</strong>条新通知</div>  <a href="javascript:void 0" class="close2"></a></div><script id="noticeScript" type="text/javascript" btnid="header_notice_num" wrapid="note1" count="5" subcount="5" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/notify.js.下载"></script><input type="hidden" id="aa_g_data_ids">
+        
+    <script type="text/javascript" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/csdn_public_blog_detail.min.js.下载"></script>
+
+    <script type="text/javascript" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/showblogmedal.ashx"></script>
+
+     
+    
+
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334" src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/52b5334.js.下载"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    
+    
+        
+     
+
+    
+          
+    <div class="pop_CA_cover" style="display:none"></div>
+    <div class="pop pop_CA" style="display:none">
+          <div class="CA_header">
+            收藏助手
+            <span class="cancel_icon" id="fapancle" onclick="$(&#39;.pop_CA&#39;).hide();$(&#39;.pop_CA_cover&#39;).hide();"></span>
+          </div>
+          <iframe src="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/saved_resource(3).html" id="fa" frameborder="0" width="100%" height="360" scrolling="no"></iframe>
+    </div>
+
+
+        <script type="text/javascript">
+
+            $(function () {
+                var fromjs = $("#fromjs");
+                if (fromjs.length > 0) {
+                    $("#fromjs .markdown_views pre").addClass("prettyprint");
+                    prettyPrint();
+
+                    $('pre.prettyprint code').each(function () {
+                        var lines = $(this).text().split('\n').length;
+                        var $numbering = $('<ul/>').addClass('pre-numbering').hide();
+                        $(this).addClass('has-numbering').parent().append($numbering);
+                        for (i = 1; i <= lines; i++) {
+                            $numbering.append($('<li/>').text(i));
+                        };
+                        $numbering.fadeIn(1700);
+                    });
+
+                    $('.pre-numbering li').css("color", "#999");
+                }
+            });
+
+            $(".markdown_views a[target!='_blank']").attr("target", "_blank");
+
+            //$(".toc a[target='_blank']").attr("target", "");
+
+            setTimeout(function () {
+                $(".toc a[target='_blank']").attr("target", "");
+            }, 500);
+
+        </script>
+
+
+   
+<div id="tag-suggest-pop">
+  <div class="relative">
+    <div class="close"></div>
+    <div class="content"></div>
+  </div>
+</div><div id="mask_code"></div><div class="gist_edit"><div class="save_snippets clearfix"><div class="tit"><h3>保存代码片</h3><span>整理和分享保存的代码片，请访问<a href="https://code.csdn.net/snippets_manage" target="_blank">代码笔记</a></span></div><div class="con_form"><ul class="gist_edit_list clearfix"><li><span class="red">*</span><span class="txt">标题</span><input id="form_title" class="form-input" placeholder="linux面试基础考题" type="text"></li><li><span class="red">*</span><span class="txt">描述</span><textarea id="form-textarea" class="form-textarea" placeholder="linux面试基础考题： http://blog.csdn.net/hzrandd/article/details/50787483"></textarea></li><li><span class="red">&nbsp;</span><span class="txt">标签</span><div id="divSearchTags"><span class="label blog_tag"><span>linux</span><a title="Removing tag" href="javascript:;">x</a></span><span class="label blog_tag"><span>面试</span><a title="Removing tag" href="javascript:;">x</a></span><span class="label blog_tag"><span>基础</span><a title="Removing tag" href="javascript:;">x</a></span><input id="insertTag" class="insertTag" placeholder="请输入标签，按Enter生成(最多5项)" type="text" value="" name="insertTag" maxlength="21" style="color: rgb(51, 51, 51);"><input id="OrganTag" class="OrganTag" type="hidden" name="OrganTag" value="linux,面试,基础,"><input id="OldOrganTag" class="OldOrganTag" type="hidden" name="OldOrganTag" value=""><input type="hidden" name="txtSearchTags"></div></li></ul></div><div class="bottom-bar"><a href="javascript:;" class="btn-submit btn-cancel">取消</a><span class="tracking-ad" data-mod="popu_250"><a class="btn-submit btn-confirm" href="javascript:;" target="_blank">确定</a></span></div></div></div><link rel="stylesheet" type="text/css" media="screen" href="./linux面试基础考题 - 不走弯路，就是捷径！ - CSDN博客_files/ask_float_fonts_css-6b30a53970eb5c3a2a045e3df585b475.css"><div data-mod="popu_64" class="csdn-tracking-statistics" chg-blk="0"><a id="com-quick-QRcode" class="QRcodebg1" title="扫描二维码" style="top:195px"><span class="closeQR"></span></a><a id="com-quick-reply" title="快速回复" style="top:329px"></a><a id="com-quick-collect" title="我要收藏" style="top:367px"></a><a id="com-d-top-a" style="top: 405px; display: inline;" title="返回顶部" onclick=""></a></div><div class="pop_edit ask_second comm_ask_second"><h3>提问</h3><span class="ask_float_span">您的问题将会被发布在“<a class="ask_float_channel" href="http://ask.csdn.net/" target="_blank" style="cursor:pointer">技术问答</a>”频道</span><a href="http://blog.csdn.net/hzrandd/article/details/50787483#" nodetype="close" class="close">×</a><div class="context"><div class="err_div"><span class="err_ico"></span><span class="err_txt">该问题已存在，请勿重复提问</span></div><div class="input_div"><input id="askInputSecond" type="text" style="font-size:14px;" placeholder="问题标题"></div><div class="cm_box"><div class="cm_dialog"></div> <div class="pop_cm cm_add_link"><input type="text" placeholder="链接内容" id="af_cm_link_txt"><input type="text" placeholder="链接地址" id="af_cm_link_url"><input type="text" placeholder="链接提示" id="af_cm_link_tit"><div class="text-right"><span class="btn btn-default btn-sm" id="add_link_btn">插入链接</span> </div> </div><div class="pop_cm cm_add_img"><div class="nav-tabs"><a class="img_tab active" href="http://blog.csdn.net/hzrandd/article/details/50787483#tab_upload">本地上传</a><a class="img_tab" href="http://blog.csdn.net/hzrandd/article/details/50787483#tab_weburl">网络图片</a></div><div class="tab_panel active" id="tab_upload"><div class="set_img"></div></div><div class="tab_panel" id="tab_weburl"><input type="text" placeholder="图片地址" id="af_cm_img_url"><input type="text" placeholder="图片说明" id="af_cm_img_alt"><div class="text-right"><span class="btn btn-default btn-sm" id="add_img_btn">插入图片</span> </div></div> </div></div> <textarea id="editor_all" rows="8" style="display: none;"></textarea><div class="editor-toolbar"><i class="separator">|</i><a class="icon-headline" title="标题一（Ctrl+Alt+1）"></a><a class="icon-heading" title="标题二（Ctrl+Alt+2）"></a><a class="icon-bold" title="粗体（Ctrl+B）"></a><a class="icon-italic" title="斜体（Ctrl+I）"></a><i class="separator">|</i><a class="icon-quote-left" title="引用（Ctrl+’）"></a><a class="icon-code" title="插入代码片（Ctrl+,）"></a><a class="icon-list-ul" title="无序列表（Ctrl+L）"></a><a class="icon-list-ol" title="有序列表（Ctrl+Alt+L）"></a><i class="separator">|</i><a class="icon-link" title="添加链接（Ctrl+K）"></a><a class="icon-picture" title="添加图片（Ctrl+Alt+I）"></a><i class="separator">|</i><a class="icon-reply" title="撤退（Ctrl+Z）"></a><a class="icon-share-alt" title="前进（Ctrl+Shift+Z）"></a><i class="separator">|</i><a class="icon-info" href="http://ask.csdn.net/pages/markdown" target="_blank" title="markdown语法参考"></a><a class="icon-preview" title="预览"></a><i class="separator">|</i></div><div class="CodeMirror cm-s-paper CodeMirror-focused"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none; font-size: 4px;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar"><div style="height: 1px;"></div></div><div class="CodeMirror-vscrollbar"><div style="width: 1px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="min-width: 33px;"><div style="position: relative;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>&nbsp;<span style="display: inline-block; width: 1px; margin-right: -1px;">&nbsp;</span></pre></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code"></div><div class="CodeMirror-cursor" style="visibility: hidden;">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor" style="visibility: hidden;">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div><div class="editor-statusbar"><span class="lines">0</span><span class="words">0</span><span class="cursor">0:0</span></div><div class="div_tags clearfix"><div id="divSearchTags" class="tags_con"><input type="text"></div><input type="hidden" name="txtSearchTags"></div><div id="ask2_tagRecomm_div" class="drt_tagRecomm tracking-ad" data-mod="popu_73"><span class="drt_tit">推荐标签：</span></div></div><div class="success"><div class="left_area"><input id="chk_cb" type="checkbox"><span class="wyxs">我要悬赏</span><input id="cb_num" class="cb_num" readonly="true"><span class="phib_rii"><span> 币</span></span></div><a href="http://blog.csdn.net/hzrandd/article/details/50787483#" nodetype="cancel" class="cancel">取消</a><a href="http://blog.csdn.net/hzrandd/article/details/50787483#" nodetype="ok" class="ok">发布</a></div></div><div id="common_ask_div_sc" class="searchContainer"><div class="sTitle">可能存在类似的问题：</div><div class="sFooter"><a class="sFirstNewAsk">我想提一个新问题</a></div></div><div style="position:fixed; top:0; left:0; overflow:hidden;"><input style="position:absolute; left:-300px;" type="text" value="" id="focus_retriever" readonly="true"></div></body></html>

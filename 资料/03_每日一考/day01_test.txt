@@ -1,0 +1,25 @@
+一、安装CentOS
+	配置网络ip地址192.168.1.100
+	配置主机名：hadoop100
+	关闭防火墙
+	实现SecureCRT远程登录
+
+二、列出如下目录的大概功能
+/dev：
+/etc：
+/home
+/mnt：
+/opt：
+/root：
+/tmp
+/usr：
+/var
+
+三、自己设计使用如下命令
+man
+pwd
+ls 列出目录的内容
+mkdir 创建一个新的目录
+rmdir 删除一个空的目录
+touch 创建空文件 
+cd 切换目录

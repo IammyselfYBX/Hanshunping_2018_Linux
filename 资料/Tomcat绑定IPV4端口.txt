@@ -1,0 +1,6 @@
+Tomcat绑定IPV4端口
+使用下面的方法可以绑定到IPV4，
+
+在<tomcat>/bin目录下新建setenv.sh，如果没有话，然后添加如下内容：
+
+JAVA_OPTS="$JAVA_OPTS -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true "
